@@ -15,13 +15,3 @@ jobs:
 
       - run: npm install prettier
       - run: npm run check-format
-      - name: Set status 'success'
-        if: always()
-        uses: octokit/request-action@v2.x
-        with:
-          route: POST /repos/:owner/:repo/statuses/:sha
-          sha: ${{ github.event.pull_request.head.sha }}
-          state: success
-          context: Prettier Check
-          description: Prettier check passed
-          token: ${{ secrets.GITHUB_TOKEN }}
