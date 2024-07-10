@@ -7,6 +7,8 @@ import { FooterComponent } from '@coreui/angular';
     styleUrls: ['./default-footer.component.scss'],
     standalone: true,
 })
-export class DefaultFooterComponent extends FooterComponent {constructor() {super();
-  }
+export class DefaultFooterComponent extends FooterComponent {
+    constructor() {
+        super();
+    }
 }
