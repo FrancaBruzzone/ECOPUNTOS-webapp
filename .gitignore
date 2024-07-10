@@ -1,5 +1,6 @@
 webapp/.node_modules
 webapp/.vscode
+webapp/.angular
 
 # Logs
 logs

@@ -1,0 +1,107 @@
+<c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card class="mb-4" id="AngularButton">
+      <c-card-header>
+        <strong>Ofertas</strong>
+      </c-card-header>
+      <c-card-body>
+        <c-row>
+          <c-col lg="4" xs="12">
+            <c-widget-stat-f
+              [title]="'Producto 1'"
+              class="mb-3"
+              color="primary"
+              padding
+              value="300 ecopuntos"
+            >
+              <ng-template cTemplateId="widgetIconTemplate">
+                <svg [cIcon]="icons.cilChartPie" size="xl" width="24"></svg>
+              </ng-template>
+              <ng-template cTemplateId="widgetFooterTemplate">
+                <button
+                  cButton
+                  class="px-0"
+                  color="link"
+                  (click)="navigateToProduct()"
+                >
+                  Ver más
+                </button>
+              </ng-template>
+            </c-widget-stat-f>
+          </c-col>
+          <c-col lg="4" xs="12">
+            <c-widget-stat-f
+              [title]="'Producto 2'"
+              class="mb-3"
+              color="primary"
+              padding
+              value="250 ecopuntos"
+            >
+              <ng-template cTemplateId="widgetIconTemplate">
+                <svg [cIcon]="icons.cilChartPie" size="xl" width="24"></svg>
+              </ng-template>
+              <ng-template cTemplateId="widgetFooterTemplate">
+                <button
+                  cButton
+                  class="px-0"
+                  color="link"
+                  (click)="navigateToProduct()"
+                >
+                  Ver más
+                </button>
+              </ng-template>
+            </c-widget-stat-f>
+          </c-col>
+          <c-col lg="4" xs="12">
+            <c-widget-stat-f
+              [title]="'Producto 3'"
+              class="mb-3"
+              color="primary"
+              padding
+              value="530 ecopuntos"
+            >
+              <ng-template cTemplateId="widgetIconTemplate">
+                <svg [cIcon]="icons.cilChartPie" size="xl" width="24"></svg>
+              </ng-template>
+              <ng-template cTemplateId="widgetFooterTemplate">
+                <button
+                  cButton
+                  class="px-0"
+                  color="link"
+                  (click)="navigateToProduct()"
+                >
+                  Ver más
+                </button>
+              </ng-template>
+            </c-widget-stat-f>
+          </c-col>
+        </c-row>
+        <c-row>
+          <c-col lg="4" xs="12">
+            <c-widget-stat-f
+              [title]="'Producto 4'"
+              class="mb-3"
+              color="primary"
+              padding
+              value="300 ecopuntos"
+            >
+              <ng-template cTemplateId="widgetIconTemplate">
+                <svg [cIcon]="icons.cilChartPie" size="xl" width="24"></svg>
+              </ng-template>
+              <ng-template cTemplateId="widgetFooterTemplate">
+                <button
+                  cButton
+                  class="px-0"
+                  color="link"
+                  (click)="navigateToProduct()"
+                >
+                  Ver más
+                </button>
+              </ng-template>
+            </c-widget-stat-f>
+          </c-col>
+        </c-row>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
