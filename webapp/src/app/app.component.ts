@@ -7,29 +7,29 @@ import { iconSubset } from './icons/icon-subset';
 import { LoginService } from './views/pages/login/login.service';
 
 @Component({
-  selector: 'app-root',
-  template: '<router-outlet />',
-  standalone: true,
-  imports: [RouterOutlet],
+    selector: 'app-root',
+    template: '<router-outlet />',
+    standalone: true,
+    imports: [RouterOutlet],
 })
 export class AppComponent implements OnInit {
-  title = 'ECOPUNTOS';
+    title = 'ECOPUNTOS';
 
-  constructor(
-    private router: Router,
-    private titleService: Title,
-    private iconSetService: IconSetService,
-  ) {
-    this.titleService.setTitle(this.title);
-    // iconSet singleton
-    this.iconSetService.icons = { ...iconSubset };
-  }
+    constructor(
+        private router: Router,
+        private titleService: Title,
+        private iconSetService: IconSetService,
+    ) {
+        this.titleService.setTitle(this.title);
+        // iconSet singleton
+        this.iconSetService.icons = { ...iconSubset };
+    }
 
-  ngOnInit(): void {
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
-      }
-    });
-  }
+    ngOnInit(): void {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+        });
+    }
 }

@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  {
-    path: '',
-    data: {
-      title: 'Notificaciones',
+    {
+        path: '',
+        data: {
+            title: 'Notificaciones',
+        },
+        loadComponent: () =>
+            import('./notifications.component').then(
+                (m) => m.NotificationsComponent,
+            ),
     },
-    loadComponent: () =>
-      import('./notifications.component').then((m) => m.NotificationsComponent),
-  },
 ];

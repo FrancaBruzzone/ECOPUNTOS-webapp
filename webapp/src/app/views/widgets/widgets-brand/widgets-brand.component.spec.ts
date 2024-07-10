@@ -8,33 +8,33 @@ import { iconSubset } from '../../../icons/icon-subset';
 import { WidgetsBrandComponent } from './widgets-brand.component';
 
 describe('WidgetsBrandComponent', () => {
-  let component: WidgetsBrandComponent;
-  let fixture: ComponentFixture<WidgetsBrandComponent>;
-  let iconSetService: IconSetService;
+    let component: WidgetsBrandComponent;
+    let fixture: ComponentFixture<WidgetsBrandComponent>;
+    let iconSetService: IconSetService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        WidgetModule,
-        GridModule,
-        ChartjsModule,
-        IconModule,
-        WidgetsBrandComponent,
-      ],
-      providers: [IconSetService],
-    }).compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                WidgetModule,
+                GridModule,
+                ChartjsModule,
+                IconModule,
+                WidgetsBrandComponent,
+            ],
+            providers: [IconSetService],
+        }).compileComponents();
+    });
 
-  beforeEach(() => {
-    iconSetService = TestBed.inject(IconSetService);
-    iconSetService.icons = { ...iconSubset };
+    beforeEach(() => {
+        iconSetService = TestBed.inject(IconSetService);
+        iconSetService.icons = { ...iconSubset };
 
-    fixture = TestBed.createComponent(WidgetsBrandComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(WidgetsBrandComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -2,10 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import {
-  CardModule,
-  GridModule,
-  ProgressModule,
-  WidgetModule,
+    CardModule,
+    GridModule,
+    ProgressModule,
+    WidgetModule,
 } from '@coreui/angular';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
@@ -15,38 +15,38 @@ import { WidgetsDropdownComponent } from '../widgets-dropdown/widgets-dropdown.c
 import { WidgetsComponent } from './widgets.component';
 
 describe('WidgetsComponent', () => {
-  let component: WidgetsComponent;
-  let fixture: ComponentFixture<WidgetsComponent>;
-  let iconSetService: IconSetService;
+    let component: WidgetsComponent;
+    let fixture: ComponentFixture<WidgetsComponent>;
+    let iconSetService: IconSetService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        WidgetModule,
-        ProgressModule,
-        GridModule,
-        CardModule,
-        RouterTestingModule,
-        ChartjsModule,
-        IconModule,
-        WidgetsComponent,
-        WidgetsBrandComponent,
-        WidgetsDropdownComponent,
-      ],
-      providers: [IconSetService],
-    }).compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                WidgetModule,
+                ProgressModule,
+                GridModule,
+                CardModule,
+                RouterTestingModule,
+                ChartjsModule,
+                IconModule,
+                WidgetsComponent,
+                WidgetsBrandComponent,
+                WidgetsDropdownComponent,
+            ],
+            providers: [IconSetService],
+        }).compileComponents();
+    });
 
-  beforeEach(() => {
-    iconSetService = TestBed.inject(IconSetService);
-    iconSetService.icons = { ...iconSubset };
+    beforeEach(() => {
+        iconSetService = TestBed.inject(IconSetService);
+        iconSetService.icons = { ...iconSubset };
 
-    fixture = TestBed.createComponent(WidgetsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(WidgetsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

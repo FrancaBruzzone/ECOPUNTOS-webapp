@@ -1,11 +1,11 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import {
-  provideRouter,
-  withRouterConfig,
-  withEnabledBlockingInitialNavigation,
-  withHashLocation,
-  withInMemoryScrolling,
-  withViewTransitions,
+    provideRouter,
+    withRouterConfig,
+    withEnabledBlockingInitialNavigation,
+    withHashLocation,
+    withInMemoryScrolling,
+    withViewTransitions,
 } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -16,23 +16,23 @@ import { LoginService } from './views/pages/login/login.service';
 import { HttpClientModule } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideRouter(
-      routes,
-      withRouterConfig({
-        onSameUrlNavigation: 'reload',
-      }),
-      withInMemoryScrolling({
-        scrollPositionRestoration: 'top',
-        anchorScrolling: 'enabled',
-      }),
-      withEnabledBlockingInitialNavigation(),
-      withViewTransitions(),
-      withHashLocation(),
-    ),
-    importProvidersFrom(SidebarModule, DropdownModule, HttpClientModule),
-    IconSetService,
-    provideAnimations(),
-    LoginService,
-  ],
+    providers: [
+        provideRouter(
+            routes,
+            withRouterConfig({
+                onSameUrlNavigation: 'reload',
+            }),
+            withInMemoryScrolling({
+                scrollPositionRestoration: 'top',
+                anchorScrolling: 'enabled',
+            }),
+            withEnabledBlockingInitialNavigation(),
+            withViewTransitions(),
+            withHashLocation(),
+        ),
+        importProvidersFrom(SidebarModule, DropdownModule, HttpClientModule),
+        IconSetService,
+        provideAnimations(),
+        LoginService,
+    ],
 };

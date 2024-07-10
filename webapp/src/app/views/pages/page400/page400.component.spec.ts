@@ -7,33 +7,33 @@ import { iconSubset } from '../../../icons/icon-subset';
 import { Page400Component } from './page400.component';
 
 describe('Page400Component', () => {
-  let component: Page400Component;
-  let fixture: ComponentFixture<Page400Component>;
-  let iconSetService: IconSetService;
+    let component: Page400Component;
+    let fixture: ComponentFixture<Page400Component>;
+    let iconSetService: IconSetService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        FormModule,
-        GridModule,
-        ButtonModule,
-        IconModule,
-        Page400Component,
-      ],
-      providers: [IconSetService],
-    }).compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                FormModule,
+                GridModule,
+                ButtonModule,
+                IconModule,
+                Page400Component,
+            ],
+            providers: [IconSetService],
+        }).compileComponents();
+    });
 
-  beforeEach(() => {
-    iconSetService = TestBed.inject(IconSetService);
-    iconSetService.icons = { ...iconSubset };
+    beforeEach(() => {
+        iconSetService = TestBed.inject(IconSetService);
+        iconSetService.icons = { ...iconSubset };
 
-    fixture = TestBed.createComponent(Page400Component);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(Page400Component);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -8,34 +8,34 @@ import { iconSubset } from '../../icons/icon-subset';
 import { OffersComponent } from './offers.component';
 
 describe('OffersComponent', () => {
-  let component: OffersComponent;
-  let fixture: ComponentFixture<OffersComponent>;
-  let iconSetService: IconSetService;
+    let component: OffersComponent;
+    let fixture: ComponentFixture<OffersComponent>;
+    let iconSetService: IconSetService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        CardModule,
-        GridModule,
-        ButtonModule,
-        RouterTestingModule,
-        IconModule,
-        OffersComponent,
-      ],
-      providers: [IconSetService],
-    }).compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                CardModule,
+                GridModule,
+                ButtonModule,
+                RouterTestingModule,
+                IconModule,
+                OffersComponent,
+            ],
+            providers: [IconSetService],
+        }).compileComponents();
+    });
 
-  beforeEach(() => {
-    iconSetService = TestBed.inject(IconSetService);
-    iconSetService.icons = { ...iconSubset };
+    beforeEach(() => {
+        iconSetService = TestBed.inject(IconSetService);
+        iconSetService.icons = { ...iconSubset };
 
-    fixture = TestBed.createComponent(OffersComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(OffersComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -4,25 +4,6 @@ import { IconDirective } from '@coreui/icons-angular';
 import { Router } from '@angular/router';
 
 import {
-  ContainerComponent,
-  RowComponent,
-  ColComponent,
-  CardGroupComponent,
-  TextColorDirective,
-  CardComponent,
-  CardBodyComponent,
-  FormDirective,
-  InputGroupComponent,
-  InputGroupTextDirective,
-  FormControlDirective,
-  ButtonDirective,
-} from '@coreui/angular';
-
-@Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgotpassword.component.html',
-  standalone: true,
-  imports: [
     ContainerComponent,
     RowComponent,
     ColComponent,
@@ -33,16 +14,35 @@ import {
     FormDirective,
     InputGroupComponent,
     InputGroupTextDirective,
-    IconDirective,
     FormControlDirective,
     ButtonDirective,
-    NgStyle,
-  ],
+} from '@coreui/angular';
+
+@Component({
+    selector: 'app-forgot-password',
+    templateUrl: './forgotpassword.component.html',
+    standalone: true,
+    imports: [
+        ContainerComponent,
+        RowComponent,
+        ColComponent,
+        CardGroupComponent,
+        TextColorDirective,
+        CardComponent,
+        CardBodyComponent,
+        FormDirective,
+        InputGroupComponent,
+        InputGroupTextDirective,
+        IconDirective,
+        FormControlDirective,
+        ButtonDirective,
+        NgStyle,
+    ],
 })
 export class ForgotPasswordComponent {
-  constructor(private router: Router) {}
+    constructor(private router: Router) {}
 
-  navigateToLogin() {
-    this.router.navigateByUrl('/login');
-  }
+    navigateToLogin() {
+        this.router.navigateByUrl('/login');
+    }
 }
