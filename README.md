@@ -1,30 +1,9 @@
 # ECOPUNTOS-webapp
 Este repositorio contiene el código fuente de la aplicación web de ECOPUNTOS
 
-## 1. Ejecución
-
-### 1.1. Base de Datos
-
-Se necesita tener MySQL corriendo localmente y configurar las variables de entorno en un archivo .env:
-
+Ejecutar frontend:
 ```
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=user
-DB_PASSWORD=password
-DB_DATABASE=dbName
-```
-
-### 1.2. En la carpeta app ejecutar el siguiente comando:
-
-```
-npm run build
-```
-
-### 1.3. En la carpeta app ejecutar el siguiente comando:
-
-```
-npm start
+ng serve
 ```
 
 # Prettier
