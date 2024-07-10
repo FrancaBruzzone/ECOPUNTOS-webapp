@@ -1,0 +1,124 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+        <c-card class="mb-4">
+            <c-card-header
+                class="d-flex align-items-center justify-content-between"
+            >
+                <strong class="mb-0">Actividades</strong>
+                <button
+                    class="btn btn-sm btn-success text-white"
+                    (click)="toggleLiveDemo()"
+                >
+                    <svg cIcon name="cilPlus"></svg>
+                </button>
+            </c-card-header>
+            <c-card-body>
+                <table
+                    [hover]="true"
+                    [responsive]="true"
+                    [striped]="true"
+                    align="middle"
+                    cTable
+                    class="mb-0 border"
+                >
+                    <thead class="text-nowrap text-truncate">
+                        <tr>
+                            <th class="bg-body-tertiary">Fecha</th>
+                            <th class="bg-body-tertiary">Usuario</th>
+                            <th class="bg-body-tertiary">Actividad</th>
+                            <th class="bg-body-tertiary">Ecopuntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let activity of activities; index as i">
+                            <td>
+                                <div>{{ activity.completedDate }}</div>
+                            </td>
+                            <td>
+                                <div>{{ activity.user }}</div>
+                            </td>
+                            <td>
+                                <div>{{ activity.type }}</div>
+                            </td>
+                            <td>
+                                <div>{{ activity.points }}</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </c-card-body>
+        </c-card>
+    </c-col>
+</c-row>
+
+<c-modal
+    id="liveDemoModal"
+    [visible]="visible"
+    (visibleChange)="handleLiveDemoChange($event)"
+>
+    <c-modal-header>
+        <h5 cModalTitle>Registrar nueva actividad</h5>
+        <button (click)="toggleLiveDemo()" cButtonClose></button>
+    </c-modal-header>
+    <c-modal-body>
+        <form>
+            <div class="mb-3">
+                <span cInputGroupText>Fecha</span>
+                <input
+                    type="date"
+                    class="form-control"
+                    name="date"
+                    [(ngModel)]="newActivity.date"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <span cInputGroupText>Usuario</span>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="user"
+                    [(ngModel)]="newActivity.user"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <span cInputGroupText>Tipo</span>
+                <select
+                    class="form-control"
+                    name="type"
+                    [(ngModel)]="newActivity.type"
+                    required
+                >
+                    <option value="">Seleccionar tipo</option>
+                    <option value="Tipo 1">Transporte sostenible</option>
+                    <option value="Tipo 2">Reciclaje</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <span cInputGroupText>Adjuntar archivo</span>
+                <input
+                    type="file"
+                    class="form-control"
+                    name="file"
+                    (change)="handleFileInput($event)"
+                    accept=".pdf,.doc,.docx"
+                />
+            </div>
+        </form>
+    </c-modal-body>
+    <c-modal-footer>
+        <button (click)="toggleLiveDemo()" cButton color="secondary">
+            Cancelar
+        </button>
+        <button
+            cButton
+            class="text-white"
+            color="success"
+            (click)="saveNewActivity()"
+        >
+            Guardar
+        </button>
+    </c-modal-footer>
+</c-modal>
