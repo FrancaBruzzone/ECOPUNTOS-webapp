@@ -12,7 +12,7 @@ import {
   SidebarHeaderComponent,
   SidebarNavComponent,
   SidebarToggleDirective,
-  SidebarTogglerDirective
+  SidebarTogglerDirective,
 } from '@coreui/angular';
 
 import { DefaultFooterComponent, DefaultHeaderComponent } from './';
@@ -46,18 +46,19 @@ function isOverflown(element: HTMLElement) {
     ShadowOnScrollDirective,
     ContainerComponent,
     RouterOutlet,
-    DefaultFooterComponent
-  ]
+    DefaultFooterComponent,
+  ],
 })
 export class DefaultLayoutComponent implements OnInit {
   public navItems = navItems;
 
-  constructor(private cookies: LoginService) { }
+  constructor(private cookies: LoginService) {}
 
   ngOnInit(): void {
-    this.navItems = this.navItems.filter(obj => obj.roles!.some(f => this.cookies.getRoles().includes(f)))
+    this.navItems = this.navItems.filter((obj) =>
+      obj.roles!.some((f) => this.cookies.getRoles().includes(f)),
+    );
   }
-
 
   onScrollbarUpdate($event: any) {
     // if ($event.verticalUsed) {

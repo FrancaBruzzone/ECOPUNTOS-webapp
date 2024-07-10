@@ -23,7 +23,7 @@ $enable-deprecation-messages: false; /* stylelint-disable-line scss/dollar-varia
 
     > .form-control {
       + .form-control {
-        margin-top: .5rem;
+        margin-top: 0.5rem;
       }
     }
 
@@ -46,7 +46,7 @@ $enable-deprecation-messages: false; /* stylelint-disable-line scss/dollar-varia
     // Images
     > svg + svg,
     > img + img {
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
 
     // Buttons
@@ -55,11 +55,11 @@ $enable-deprecation-messages: false; /* stylelint-disable-line scss/dollar-varia
     .d-md-block > .btn,
     > .btn,
     > .btn-group {
-      margin: .25rem .125rem;
+      margin: 0.25rem 0.125rem;
     }
 
     > .btn-toolbar + .btn-toolbar {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
     }
 
     // List groups
@@ -95,8 +95,8 @@ $enable-deprecation-messages: false; /* stylelint-disable-line scss/dollar-varia
 
     // Pagination
     .pagination {
-      margin-top: .5rem;
-      margin-bottom: .5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .docs-example-modal {

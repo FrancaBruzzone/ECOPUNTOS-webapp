@@ -8,13 +8,12 @@ import { CalloutComponent } from '@coreui/angular';
   templateUrl: './docs-callout.component.html',
   styleUrls: ['./docs-callout.component.scss'],
   standalone: true,
-  imports: [CalloutComponent, NgTemplateOutlet]
+  imports: [CalloutComponent, NgTemplateOutlet],
 })
 export class DocsCalloutComponent {
-
   @Input() name: string = '';
 
-  constructor() { }
+  constructor() {}
 
   private _href: string = 'https://coreui.io/angular/docs/';
 
@@ -25,7 +24,9 @@ export class DocsCalloutComponent {
   @Input()
   set href(value: string) {
     const version = packageJson?.config?.coreui_library_short_version;
-    const docsUrl = packageJson?.config?.coreui_library_docs_url ?? 'https://coreui.io/angular/';
+    const docsUrl =
+      packageJson?.config?.coreui_library_docs_url ??
+      'https://coreui.io/angular/';
     // const path: string = version ? `${version}/${value}` : `${value}`;
     const path: string = value;
     this._href = `${docsUrl}${path}`;
@@ -34,5 +35,4 @@ export class DocsCalloutComponent {
   get plural() {
     return this.name?.slice(-1) === 's';
   }
-
 }
