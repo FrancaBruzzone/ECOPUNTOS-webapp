@@ -7,7 +7,7 @@
                 <c-card-group>
                     <c-card class="p-4">
                         <c-card-body>
-                            <form cForm #f="ngForm">
+                            <form #f="ngForm" (ngSubmit)="login()">
                                 <h1>Iniciar sesión</h1>
                                 <c-input-group class="mt-3 mb-3">
                                     <span cInputGroupText>
@@ -21,6 +21,7 @@
                                         autoComplete="email"
                                         cFormControl
                                         placeholder="Correo electrónico"
+                                        #emailInput="ngModel"
                                     />
                                 </c-input-group>
                                 <c-input-group class="mb-4">
@@ -36,6 +37,7 @@
                                         cFormControl
                                         placeholder="Contraseña"
                                         type="password"
+                                        #passwordInput="ngModel"
                                     />
                                 </c-input-group>
 
@@ -53,7 +55,8 @@
                                         color="success"
                                         cTextColor="white"
                                         class="container"
-                                        (click)="login()"
+                                        [disabled]="!f.valid"
+                                        type="submit"
                                     >
                                         <i
                                             class="fa fa-sign-in"
