@@ -1,118 +1,128 @@
 <c-card class="mb-4">
-  <c-card-header class="d-flex align-items-center justify-content-between">
-    <strong>Integrantes</strong>
-    <button
-      class="btn btn-sm btn-success text-white"
-      (click)="toggleLiveDemo()"
-    >
-      Invitar
-      <svg cIcon name="cilPlus"></svg>
-    </button>
-  </c-card-header>
-  <c-card-body>
-    <table
-      [hover]="true"
-      [responsive]="true"
-      [striped]="true"
-      align="middle"
-      cTable
-      class="mb-0 border"
-    >
-      <thead class="text-nowrap text-truncate">
-        <tr>
-          <th class="bg-body-tertiary text-center">
-            <svg cIcon name="cilPeople"></svg>
-          </th>
-          <th class="bg-body-tertiary">Nombre</th>
-          <th class="bg-body-tertiary">Uso</th>
-          <th class="bg-body-tertiary">Actividad</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (user of users; track user.name; let i = $index) {
-          <tr>
-            <td class="text-center">
-              <c-avatar
-                [size]="'md'"
-                src="{{ user.avatar }}"
-                status="{{ user.status }}"
-              />
-            </td>
-            <td>
-              <div>{{ user.name }}</div>
-              <div class="small text-body-secondary text-nowrap">
-                <span>
-                  {{ user.state }} | Registro: {{ user.registered }}
-                </span>
-              </div>
-            </td>
-            <td>
-              <div class="d-flex justify-content-between">
-                <div class="float-start">
-                  <strong>{{ user.usage }}%</strong>
-                </div>
-                <div class="float-end ms-1 text-nowrap">
-                  <small class="text-body-secondary">
-                    {{ user.registered }}
-                  </small>
-                </div>
-              </div>
-              <c-progress
-                thin
-                [value]="user.usage"
-                color="{{ user.color }}"
-                aria-label="Usage"
-              />
-            </td>
-            <td>
-              <div class="small text-body-secondary">Última sesión</div>
-              <div class="fw-semibold text-nowrap">{{ user.activity }}</div>
-            </td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  </c-card-body>
+    <c-card-header class="d-flex align-items-center justify-content-between">
+        <strong>Integrantes</strong>
+        <button
+            class="btn btn-sm btn-success text-white"
+            (click)="toggleLiveDemo()"
+        >
+            Invitar
+            <svg cIcon name="cilPlus"></svg>
+        </button>
+    </c-card-header>
+    <c-card-body>
+        <table
+            [hover]="true"
+            [responsive]="true"
+            [striped]="true"
+            align="middle"
+            cTable
+            class="mb-0 border"
+        >
+            <thead class="text-nowrap text-truncate">
+                <tr>
+                    <th class="bg-body-tertiary text-center">
+                        <svg cIcon name="cilPeople"></svg>
+                    </th>
+                    <th class="bg-body-tertiary">Nombre</th>
+                    <th class="bg-body-tertiary">Uso</th>
+                    <th class="bg-body-tertiary">Actividad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (user of users; track user.name; let i = $index) {
+                    <tr>
+                        <td class="text-center">
+                            <c-avatar
+                                [size]="'md'"
+                                src="{{ user.avatar }}"
+                                status="{{ user.status }}"
+                            />
+                        </td>
+                        <td>
+                            <div>{{ user.name }}</div>
+                            <div class="small text-body-secondary text-nowrap">
+                                <span>
+                                    {{ user.state }} | Registro:
+                                    {{ user.registered }}
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <div class="float-start">
+                                    <strong>{{ user.usage }}%</strong>
+                                </div>
+                                <div class="float-end ms-1 text-nowrap">
+                                    <small class="text-body-secondary">
+                                        {{ user.registered }}
+                                    </small>
+                                </div>
+                            </div>
+                            <c-progress
+                                thin
+                                [value]="user.usage"
+                                color="{{ user.color }}"
+                                aria-label="Usage"
+                            />
+                        </td>
+                        <td>
+                            <div class="small text-body-secondary">
+                                Última sesión
+                            </div>
+                            <div class="fw-semibold text-nowrap">
+                                {{ user.activity }}
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </c-card-body>
 </c-card>
 
 <c-modal
-  id="liveDemoModal"
-  [visible]="visible"
-  (visibleChange)="handleLiveDemoChange($event)"
+    id="liveDemoModal"
+    [visible]="visible"
+    (visibleChange)="handleLiveDemoChange($event)"
 >
-  <c-modal-header>
-    <h5 cModalTitle>Invitar nuevo integrante</h5>
-  </c-modal-header>
-  <c-modal-body>
-    <form>
-      <div class="mb-3">
-        <span cInputGroupText>Correo electrónico</span>
-        <input
-          type="text"
-          class="form-control"
-          name="mail"
-          [(ngModel)]="newUser.mail"
-          required
-        />
-      </div>
-      <div class="mb-3">
-        <span cInputGroupText>Nombre</span>
-        <input
-          type="text"
-          class="form-control"
-          name="amount"
-          [(ngModel)]="newUser.name"
-          required
-        />
-      </div>
-    </form>
-  </c-modal-body>
-  <c-modal-footer>
-    <button (click)="toggleLiveDemo()" cButton color="secondary">
-      Cancelar
-    </button>
-    <button cButton class="text-white" color="success" (click)="saveNewUser()">
-      Guardar
-    </button>
-  </c-modal-footer>
+    <c-modal-header>
+        <h5 cModalTitle>Invitar nuevo integrante</h5>
+    </c-modal-header>
+    <c-modal-body>
+        <form>
+            <div class="mb-3">
+                <span cInputGroupText>Correo electrónico</span>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="mail"
+                    [(ngModel)]="newUser.mail"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <span cInputGroupText>Nombre</span>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="amount"
+                    [(ngModel)]="newUser.name"
+                    required
+                />
+            </div>
+        </form>
+    </c-modal-body>
+    <c-modal-footer>
+        <button (click)="toggleLiveDemo()" cButton color="secondary">
+            Cancelar
+        </button>
+        <button
+            cButton
+            class="text-white"
+            color="success"
+            (click)="saveNewUser()"
+        >
+            Guardar
+        </button>
+    </c-modal-footer>
 </c-modal>
