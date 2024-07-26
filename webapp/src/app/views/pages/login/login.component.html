@@ -16,6 +16,7 @@
                                     <input
                                         name="email"
                                         [(ngModel)]="email"
+                                        (ngModelChange)="clearErrorMessage()"
                                         required
                                         autoComplete="email"
                                         cFormControl
@@ -29,6 +30,7 @@
                                     <input
                                         name="password"
                                         [(ngModel)]="password"
+                                        (ngModelChange)="clearErrorMessage()"
                                         required
                                         autoComplete="current-password"
                                         cFormControl
@@ -36,17 +38,32 @@
                                         type="password"
                                     />
                                 </c-input-group>
+
+                                <div
+                                    *ngIf="errorMessage"
+                                    class="alert alert-danger"
+                                    role="alert"
+                                >
+                                    {{ errorMessage }}
+                                </div>
+
+                                <c-input-group class="mb-4">
+                                    <button
+                                        cButton
+                                        color="success"
+                                        cTextColor="white"
+                                        class="container"
+                                        (click)="login()"
+                                    >
+                                        <i
+                                            class="fa fa-sign-in"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Iniciar sesión
+                                    </button>
+                                </c-input-group>
+
                                 <c-row>
-                                    <c-col xs="5">
-                                        <button
-                                            cButton
-                                            class="px-4 text-white"
-                                            color="success"
-                                            (click)="login()"
-                                        >
-                                            Iniciar sesión
-                                        </button>
-                                    </c-col>
                                     <c-col class="text-right" xs="7">
                                         <button
                                             cButton
