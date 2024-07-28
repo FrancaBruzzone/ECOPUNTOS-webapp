@@ -89,5 +89,4 @@ export class LoginComponent {
     signInWithFacebook(): void {
         this.router.navigateByUrl('/dashboard');
     }
-
 }
