@@ -6,7 +6,7 @@ import {
     OnInit,
     Renderer2,
 } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     AvatarComponent,
     ButtonDirective,
@@ -18,6 +18,10 @@ import {
     ColComponent,
     FormCheckLabelDirective,
     GutterDirective,
+    ModalBodyComponent,
+    ModalComponent,
+    ModalFooterComponent,
+    ModalHeaderComponent,
     ProgressBarDirective,
     ProgressComponent,
     RowComponent,
@@ -27,7 +31,7 @@ import {
 import { ChartjsComponent } from '@coreui/angular-chartjs';
 import { IconDirective } from '@coreui/icons-angular';
 
-interface IUser {
+interface IUsers {
     name: string;
     state: string;
     registered: string;
@@ -36,6 +40,16 @@ interface IUser {
     avatar: string;
     status: string;
     color: string;
+}
+
+interface IInvestment {
+    code: string;
+    date: string;
+    amount: number;
+}
+interface IUser {
+    mail: string;
+    name: string;
 }
 
 @Component({
@@ -61,14 +75,20 @@ interface IUser {
         CardHeaderComponent,
         TableDirective,
         AvatarComponent,
+        ModalBodyComponent,
+        ModalHeaderComponent,
+        ModalComponent,
+        ModalFooterComponent,
+        FormsModule,
     ],
 })
 export class UsersComponent {
     readonly #destroyRef: DestroyRef = inject(DestroyRef);
     readonly #document: Document = inject(DOCUMENT);
     readonly #renderer: Renderer2 = inject(Renderer2);
+    public visible = false;
 
-    public users: IUser[] = [
+    public users: IUsers[] = [
         {
             name: 'Franca Bruzzone',
             state: 'Nuevo',
@@ -100,4 +120,44 @@ export class UsersComponent {
             color: 'danger',
         },
     ];
+
+    public investments: IInvestment[] = [
+        {
+            code: 'F2377',
+            date: '2024-01-01',
+            amount: 1000,
+        },
+        {
+            code: 'F2341',
+            date: '2024-03-01',
+            amount: 2000,
+        },
+        {
+            code: 'F2340',
+            date: '2024-04-01',
+            amount: 4300,
+        },
+    ];
+
+    newUser = {
+        mail: '',
+        name: '',
+    };
+
+    toggleLiveDemo() {
+        this.visible = !this.visible;
+    }
+
+    handleLiveDemoChange(event: any) {
+        this.visible = event;
+    }
+
+    saveNewUser() {
+        console.log('Guardar nueva inversión:', this.newUser);
+        this.newUser = {
+            mail: '',
+            name: '',
+        };
+        this.toggleLiveDemo();
+    }
 }

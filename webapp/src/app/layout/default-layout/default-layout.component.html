@@ -181,7 +181,8 @@
                     fill="#98A572"
                 />
             </svg>
-            ECOPUNTOS
+
+            <p *ngIf="smMenu" class="d-inline">ECOPUNTOS</p>
         </c-sidebar-brand>
     </c-sidebar-header>
 
@@ -206,7 +207,11 @@
             toggle="unfoldable"
             style="cursor: pointer"
         >
-            <button cSidebarToggler aria-label="Toggle sidebar fold"></button>
+            <button
+                cSidebarToggler
+                aria-label="Toggle sidebar fold"
+                (click)="toggleMenu(sidebar1.narrow)"
+            ></button>
         </c-sidebar-footer>
     }
 </c-sidebar>

@@ -25,9 +25,7 @@ export class LoginService {
             .pipe(
                 map((response) => {
                     // Guardar el token como cookie
-                    this.cookieService.set(this.tokenName, response.token);
-                    console.log(this.getToken());
-                    console.log(this.getUserInfoFromToken());
+                    this.cookieService.set(this.tokenName, response.data);
                     return response;
                 }),
             );
@@ -61,14 +59,22 @@ export class LoginService {
     isPersonalUser(): boolean {
         // Verifica si el usuario logueado es personal y no es un usuario de empresa
         const tokenPayload = this.getUserInfoFromToken();
-        return tokenPayload.isPersonalUser;
+
+        if (
+            tokenPayload.userRolesNames &&
+            Array.isArray(tokenPayload.userRolesNames)
+        ) {
+            return (
+                tokenPayload.userRolesNames.length === 1 &&
+                tokenPayload.userRolesNames[0] === 'User'
+            );
+        }
+
+        return false;
     }
 
     getRoles(): string[] {
-        if (this.isPersonalUser()) {
-            return ['User'];
-        } else {
-            return ['Company'];
-        }
+        const tokenPayload = this.getUserInfoFromToken();
+        return tokenPayload.userRolesNames;
     }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 import { IconDirective } from '@coreui/icons-angular';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
@@ -41,11 +41,13 @@ import { FormsModule } from '@angular/forms';
         ButtonDirective,
         NgStyle,
         FormsModule,
+        CommonModule,
     ],
 })
 export class LoginComponent {
     email: string = '';
     password: string = '';
+    errorMessage: string | null = null;
 
     constructor(
         private router: Router,
@@ -65,8 +67,19 @@ export class LoginComponent {
     }
 
     login(): void {
-        this.loginService.login(this.email, this.password).subscribe((data) => {
-            this.router.navigateByUrl('/dashboard');
-        });
+        this.loginService.login(this.email, this.password).subscribe(
+            (response) => {
+                this.router.navigate(['/dashboard']);
+            },
+            (error) => {
+                this.errorMessage =
+                    error.error.message ||
+                    'Error al iniciar sesión intente más tarde';
+            },
+        );
+    }
+
+    clearErrorMessage() {
+        this.errorMessage = null;
     }
 }

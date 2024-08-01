@@ -10,11 +10,10 @@ export class RegisterService {
 
     constructor(private http: HttpClient) {}
 
-    register(email: string, password: string, isPersonalUser: boolean) {
+    register(email: string, password: string) {
         return this.http.post<any>(this.apiUrl, {
             email: email,
             password: password,
-            isPersonalUser: isPersonalUser,
         });
     }
 }

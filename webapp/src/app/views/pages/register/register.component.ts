@@ -16,6 +16,7 @@ import {
 import { Router } from '@angular/router';
 import { RegisterService } from './register.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-register',
@@ -36,12 +37,14 @@ import { FormsModule } from '@angular/forms';
         FormControlDirective,
         ButtonDirective,
         FormsModule,
+        CommonModule,
     ],
 })
 export class RegisterComponent {
     email: string = '';
     password: string = '';
-    isPersonalUser: boolean = false;
+    repetedPassword: string = '';
+    errorMessage: string | null = null;
 
     constructor(
         private router: Router,
@@ -49,14 +52,23 @@ export class RegisterComponent {
     ) {}
 
     register(): void {
-        this.registerService
-            .register(this.email, this.password, this.isPersonalUser)
-            .subscribe(() => {
-                this.router.navigate(['/login']);
-            });
+        if (this.password == this.repetedPassword) {
+            this.registerService.register(this.email, this.password).subscribe(
+                (response) => {
+                    this.router.navigate(['/login']);
+                },
+                (error) => {
+                    this.errorMessage =
+                        error.error.message ||
+                        'Error al registrarse intente más tarde';
+                },
+            );
+        } else {
+            this.errorMessage = 'La contraseña y su repetición no coinciden';
+        }
     }
 
-    togglePersonalAccount(event: any) {
-        this.isPersonalUser = event.target.checked;
+    clearErrorMessage() {
+        this.errorMessage = null;
     }
 }

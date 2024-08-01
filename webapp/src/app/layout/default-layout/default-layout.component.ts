@@ -18,6 +18,7 @@ import {
 import { DefaultFooterComponent, DefaultHeaderComponent } from './';
 import { navItems } from './_nav';
 import { LoginService } from 'src/app/views/pages/login/login.service';
+import { CommonModule } from '@angular/common';
 
 function isOverflown(element: HTMLElement) {
     return (
@@ -47,17 +48,22 @@ function isOverflown(element: HTMLElement) {
         ContainerComponent,
         RouterOutlet,
         DefaultFooterComponent,
+        CommonModule,
     ],
 })
 export class DefaultLayoutComponent implements OnInit {
     public navItems = navItems;
-
+    public smMenu = true;
     constructor(private cookies: LoginService) {}
 
     ngOnInit(): void {
         this.navItems = this.navItems.filter((obj) =>
             obj.roles!.some((f) => this.cookies.getRoles().includes(f)),
         );
+    }
+
+    toggleMenu(type: boolean) {
+        type ? (this.smMenu = true) : (this.smMenu = false);
     }
 
     onScrollbarUpdate($event: any) {
