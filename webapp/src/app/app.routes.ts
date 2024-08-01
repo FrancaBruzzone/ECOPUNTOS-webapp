@@ -19,49 +19,49 @@ export const routes: Routes = [
                 path: 'settings',
                 loadChildren: () =>
                     import('./views/settings/routes').then((m) => m.routes),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'dashboard',
                 loadChildren: () =>
                     import('./views/dashboard/routes').then((m) => m.routes),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'users',
                 loadChildren: () =>
                     import('./views/users/routes').then((m) => m.routes),
-                data: { allowedRoles: ['Company'] },
+                data: { allowedRoles: ['Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'investments',
                 loadChildren: () =>
                     import('./views/investments/routes').then((m) => m.routes),
-                data: { allowedRoles: ['Company'] },
+                data: { allowedRoles: ['Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'offers',
                 loadChildren: () =>
                     import('./views/offers/routes').then((m) => m.routes),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'product',
                 loadChildren: () =>
                     import('./views/product/routes').then((m) => m.routes),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'activities',
                 loadChildren: () =>
                     import('./views/activities/routes').then((m) => m.routes),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
@@ -70,14 +70,14 @@ export const routes: Routes = [
                     import('./views/notifications/routes').then(
                         (m) => m.routes,
                     ),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'graphicusers',
                 loadChildren: () =>
                     import('./views/graphicusers/routes').then((m) => m.routes),
-                data: { allowedRoles: ['Company'] },
+                data: { allowedRoles: ['Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
@@ -86,7 +86,7 @@ export const routes: Routes = [
                     import('./views/graphiccompanies/routes').then(
                         (m) => m.routes,
                     ),
-                data: { allowedRoles: ['Company'] },
+                data: { allowedRoles: ['Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
@@ -95,21 +95,28 @@ export const routes: Routes = [
                     import('./views/graphicactivities/routes').then(
                         (m) => m.routes,
                     ),
-                data: { allowedRoles: ['Company'] },
+                data: { allowedRoles: ['Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'profile',
                 loadChildren: () =>
                     import('./views/profile/routes').then((m) => m.routes),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
                 canActivate: [AuthenticationService],
             },
             {
                 path: 'transactions',
                 loadChildren: () =>
                     import('./views/transactions/routes').then((m) => m.routes),
-                data: { allowedRoles: ['User', 'Company'] },
+                data: { allowedRoles: ['User', 'Admin'] },
+                canActivate: [AuthenticationService],
+            },
+            {
+                path: 'companies',
+                loadChildren: () =>
+                    import('./views/companies/routes').then((m) => m.routes),
+                data: { allowedRoles: ['User'] },
                 canActivate: [AuthenticationService],
             },
         ],
