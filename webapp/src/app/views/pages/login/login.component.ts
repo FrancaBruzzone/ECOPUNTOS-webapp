@@ -82,4 +82,11 @@ export class LoginComponent {
     clearErrorMessage() {
         this.errorMessage = null;
     }
+
+    signInWithGoogle(): void {
+        this.router.navigateByUrl('/dashboard');
+    }
+    signInWithFacebook(): void {
+        this.router.navigateByUrl('/dashboard');
+    }
 }
